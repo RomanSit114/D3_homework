@@ -47,6 +47,9 @@ class Post(models.Model):
     def preview(self):
         return self.text[0:124] + '...'
 
+    def __str__(self):
+        return self.title
+
 class PostCategory(models.Model):
     postThrough = models.ForeignKey(Post, on_delete=models.CASCADE)
     categoryThrough = models.ForeignKey(Category, on_delete=models.CASCADE)
