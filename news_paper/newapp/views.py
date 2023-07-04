@@ -5,6 +5,7 @@ from .models import Post, Author, Category, PostCategory, Comment, News
 from django.core.paginator import Paginator
 from .filters import NewsFilter
 from .forms import NewsForm, CommentForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class NewsListView(ListView):
     model = Post
@@ -69,7 +70,7 @@ class NewsCreateView(CreateView):
     template_name = 'news_create.html'
     success_url = '/news/'
 
-class NewsUpdateView(UpdateView):
+class NewsUpdateView(LoginRequiredMixin, UpdateView):
     form_class = NewsForm
     template_name = 'news_update.html'
     success_url = '/news/{id}'
