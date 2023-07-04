@@ -1,0 +1,48 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title %}
+<h1>Поиск</h1>
+{% endblock title %}
+
+<hr>
+
+{% block content %}
+<form method="GET">
+    {{ filter.form }}
+    <input type="submit" value="Найти">
+</form>
+<table>
+        <thead>
+            <th>
+                Название статьи
+            </th>
+            <th>
+                Дата написания
+            </th>
+            <th>
+                Автор
+            </th>
+            <th>
+                Общий поиск
+            </th>
+        </thead>
+        {% for new in filter.qs %}
+            <tr>
+                <td>
+                    {{ new.title|censor }}
+                </td>
+                <td>
+                    {{ new.dateCreation|date:'M-d-Y H:m:s' }}
+                </td>
+                <td>
+                    {{ new.author.authorUser }}
+                </td>
+                <td>
+                    {{ new.text|censor }}
+                </td>
+            </tr>
+        {% endfor %}
+</table>
+{% endblock content %}

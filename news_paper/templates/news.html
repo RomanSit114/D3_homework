@@ -1,0 +1,68 @@
+
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title %}
+    <h1>Все новости</h1>
+{% endblock title %}
+
+{% block content %}
+    <hr>
+    <h3>Количество новостей: {{ news|length }}</h3>
+    <hr>
+    {% if news %}
+        <table>
+            <tr>
+                <td>
+                    Заголовок
+                </td>
+                <td>
+                    Дата публикации
+                </td>
+                <td>
+                    Превью статьи
+                </td>
+            </tr>
+            {% for new in news %}
+                <tr>
+                    <td>
+                        <a href="{% url 'new' new.id %}">{{ new.title|censor }}</a>
+                        <a href="{% url 'news-update' new.id %}"><u>Редактировать</u></a>
+                        <a href="{% url 'news-delete' new.id %}"><u>Удалить</u></a>
+                    </td>
+                    <td>
+                        {{ new.dateCreation|date:'M-d-Y H:m'}}
+                    </td>
+                    <td>
+                        {{ new.text|truncatechars:50|censor }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+<a href="{% url 'news-create' %}">Добавить новую новость/статью</a> <br>
+        <div class="pagination">
+            {% if news.has_other_pages %}
+                {% if news.has_previous %}
+                    <a href="?page=1">First</a>
+                    <a href="?page={{ news.previous_page_number }}"><<<</a>
+                {% endif %}
+                {% for num in news.paginator.page_range %}
+                    {% if news.number == num %}
+                        <a>{{ num }}</a>
+                    {% elif num > news.number|add:'-2' and num < news.number|add:'2' %}
+                        <a href="?page={{ num }}">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+
+                {% if news.has_next %}
+                    <a href="?page={{ news.next_page_number }}">>>></a>
+                    <a href="?page={{ news.paginator.num_pages }}">Last</a>
+                {% endif %}
+            {% endif %}
+        </div>
+    {% else %}
+        <h2>Новостей нет!</h2>
+    {% endif %}
+
+{% endblock content %}
