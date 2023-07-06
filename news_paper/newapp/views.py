@@ -6,6 +6,8 @@ from django.core.paginator import Paginator
 from .filters import NewsFilter
 from .forms import NewsForm, CommentForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse
+
 
 class NewsListView(ListView):
     model = Post
@@ -40,6 +42,11 @@ class NewsListView(ListView):
             context['form'] = form
             return self.render_to_response(context)
 
+    # success_url = reverse('news')
+
+    # def get_logout_redirect_url(self):
+    #     return self.success_url
+
 class NewsDetailView(DetailView):
     model = Post
     template_name = 'new.html'
@@ -54,6 +61,9 @@ class NewsDetailView(DetailView):
             context = self.get_context_data(**kwargs)
             context['form'] = form
             return self.render_to_response(context)
+
+    def get_success_url(self):
+        return reverse('news')
 
 class SearchListView(ListView):
     model = Post
@@ -84,3 +94,4 @@ class NewsDeleteView(DeleteView):
     queryset = Post.objects.all()
     success_url = '/news/'
     context_object_name = 'new'
+
