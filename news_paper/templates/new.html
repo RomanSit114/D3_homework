@@ -12,4 +12,8 @@
 <h3>Дата публикации: {{ new.dateCreation|date:'M-d-Y H:m' }}</h3>
 <hr>
 <a>{{ new.text|censor }}</a>
+<br><br>
+<a class="btn btn-primary" href="{% url 'main_page' %}">На главную</a>
 {% endblock content %}
+
+

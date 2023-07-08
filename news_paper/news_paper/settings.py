@@ -149,5 +149,7 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
-LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/news/'
+LOGIN_URL = 'http://127.0.0.1:8000/accounts/login/'
+LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/news/'
+
+ACCOUNT_FORMS = {'signup': 'newapp.models.CommonSignupForm'}

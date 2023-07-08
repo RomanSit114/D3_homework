@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import Group
 from django.http import request
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -30,6 +32,7 @@ class NewsListView(ListView):
         context = super().get_context_data(**kwargs)
         context['filter'] = NewsFilter(self.request.GET, queryset=self.get_queryset())
         context['form'] = self.form_class()
+        context['is_not_authors'] = not self.request.user.groups.filter(name='authors').exists()
         return context
 
     def post(self, request, *args, **kwargs):
@@ -46,6 +49,17 @@ class NewsListView(ListView):
 
     # def get_logout_redirect_url(self):
     #     return self.success_url
+
+@login_required
+def i_am_author(request):
+   user = request.user
+   authors_group = Group.objects.get(name='authors')
+   if not request.user.groups.filter(name='authors').exists():
+       authors_group.user_set.add(user)
+       user.save()
+       return redirect('/')
+   else:
+       return redirect('/')
 
 class NewsDetailView(DetailView):
     model = Post

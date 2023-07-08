@@ -8,6 +8,7 @@
 {% endblock title %}
 
 {% block content %}
+    <h2>Здравствуйте {{request.user.username}}!</h2>
     <hr>
     <h3>Количество новостей: {{ news|length }}</h3>
     <hr>
@@ -64,5 +65,26 @@
     {% else %}
         <h2>Новостей нет!</h2>
     {% endif %}
+
+<br>
+<a class="btn btn-primary" href="{% url 'login' %}">
+ Войти в аккаунт
+</a>
+<br><br>
+<a class="btn btn-primary" href="{% url 'logout' %}">
+ Выйти из аккаунта
+</a>
+<br><br>
+<a class="btn btn-primary" href="{% url 'signup' %}">
+ Регистрация
+</a>
+<br><br>
+{% if is_not_authors %}
+    <a class="btn btn-primary" href="{% url 'be_author' %}">
+     Стать автором
+    </a>
+{% else %}
+    <h3>Вы уже являетесь автором</h3>
+{% endif %}
 
 {% endblock content %}

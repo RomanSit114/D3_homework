@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Sum
+from allauth.account.forms import SignupForm
+from django.contrib.auth.models import Group
 
 class Author(models.Model):
     authorUser = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -82,3 +84,12 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class CommonSignupForm(SignupForm):
+
+    def save(self, request):
+        user = super(CommonSignupForm, self).save(request)
+        common_group = Group.objects.get_or_create(name='common')[0]
+        common_group.user_set.add(user)
+        return user
