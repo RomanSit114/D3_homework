@@ -7,9 +7,8 @@ from .models import Post, Author, Category, PostCategory, Comment, News
 from django.core.paginator import Paginator
 from .filters import NewsFilter
 from .forms import NewsForm, CommentForm
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.urls import reverse
-
 
 class NewsListView(ListView):
     model = Post
@@ -18,15 +17,6 @@ class NewsListView(ListView):
     queryset = Post.objects.order_by('-id')
     paginate_by = 3
     form_class = NewsForm
-
-    def get(self, request):
-        news = Post.objects.all()
-        p = Paginator(news, 3)
-        news = p.get_page(request.GET.get('page', 1))
-        data = {
-            'news': news,
-        }
-        return render(request, 'news.html', data)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -51,7 +41,6 @@ def i_am_author(request):
    authors_group = Group.objects.get(name='authors')
    if not request.user.groups.filter(name='authors').exists():
        authors_group.user_set.add(user)
-       # user.groups.add(authors_group)
    return redirect('/')
 
 class NewsDetailView(DetailView):
@@ -82,12 +71,14 @@ class SearchListView(ListView):
         context['filter'] = NewsFilter(self.request.GET, queryset=self.get_queryset())
         return context
 
-class NewsCreateView(CreateView):
+class NewsCreateView(PermissionRequiredMixin, CreateView):
+    permission_required = ('newapp.add_post')
     form_class = NewsForm
     template_name = 'news_create.html'
     success_url = '/news/'
 
-class NewsUpdateView(LoginRequiredMixin, UpdateView):
+class NewsUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+    permission_required = ('newapp.change_post')
     form_class = NewsForm
     template_name = 'news_update.html'
     success_url = '/news/{id}'
