@@ -45,21 +45,14 @@ class NewsListView(ListView):
             context['form'] = form
             return self.render_to_response(context)
 
-    # success_url = reverse('news')
-
-    # def get_logout_redirect_url(self):
-    #     return self.success_url
-
 @login_required
 def i_am_author(request):
    user = request.user
    authors_group = Group.objects.get(name='authors')
    if not request.user.groups.filter(name='authors').exists():
        authors_group.user_set.add(user)
-       user.save()
-       return redirect('/')
-   else:
-       return redirect('/')
+       # user.groups.add(authors_group)
+   return redirect('/')
 
 class NewsDetailView(DetailView):
     model = Post

@@ -80,9 +80,7 @@
 </a>
 <br><br>
 {% if is_not_authors %}
-    <a class="btn btn-primary" href="{% url 'be_author' %}">
-     Стать автором
-    </a>
+<button><a class="btn btn-primary" href="{% url 'be_author' %}">Стать автором</a></button>
 {% else %}
     <h3>Вы уже являетесь автором</h3>
 {% endif %}
