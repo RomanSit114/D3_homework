@@ -4,7 +4,7 @@ from .models import Post, Comment
 class NewsForm(ModelForm):
     class Meta:
         model = Post
-        fields = ['author', 'title', 'text']
+        fields = ['author', 'title', 'text', 'postCategory']
 
 class CommentForm(ModelForm):
     class Meta:
