@@ -11,6 +11,12 @@
 <hr>
 <h3>Дата публикации: {{ new.dateCreation|date:'M-d-Y H:m' }}</h3>
 <hr>
+{% if new.postCategory.exists %}
+    <h5>Категория: {{ new.postCategory.first.name }}</h5>
+{% else %}
+    <h5>Категории отсутствуют</h5>
+{% endif %}
+<hr>
 <a>{{ new.text|censor }}</a>
 <br><br>
 <a class="btn btn-primary" href="{% url 'main_page' %}">На главную</a>
