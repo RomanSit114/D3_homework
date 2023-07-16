@@ -3,7 +3,7 @@ from django.contrib.auth.models import Group
 from django.http import request
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post, Author, Category, PostCategory, Comment, News
+from .models import Post, Author, Category, PostCategory, Comment, News, SubscribedUsers
 from django.core.paginator import Paginator
 from .filters import NewsFilter
 from .forms import NewsForm, CommentForm
@@ -92,4 +92,18 @@ class NewsDeleteView(DeleteView):
     queryset = Post.objects.all()
     success_url = '/news/'
     context_object_name = 'new'
+
+def subscribe(request):
+    if request.method == 'POST':
+        name = request.POST.get('name', None)
+        email = request.POST.get('email', None)
+
+        subscribe_user = SubscribedUsers.objects.filter(email=email).first()
+
+        subscribe_model_instance = SubscribedUsers()
+        subscribe_model_instance.name = name
+        subscribe_model_instance.email = email
+        subscribe_model_instance.save()
+        return redirect(request.META.get("HTTP_REFERER", "/"))
+
 

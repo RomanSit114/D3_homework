@@ -10,5 +10,6 @@ urlpatterns = [
     path('add/', NewsCreateView.as_view(), name='news-create'),
     path('<int:pk>/edit/', NewsUpdateView.as_view(), name='news-update'),
     path('<int:pk>/delete/', NewsDeleteView.as_view(), name='news-delete'),
-    path('be_author/', i_am_author, name = 'be_author')
+    path('be_author/', i_am_author, name = 'be_author'),
+    path('subscribe/', views.subscribe, name = 'subscribe'),
 ]

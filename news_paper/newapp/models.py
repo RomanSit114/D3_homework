@@ -25,7 +25,7 @@ class Author(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=64, unique=True)
-    subscribers = models.ManyToManyField(User, related_name='subscribed_categories', blank=True)
+    # subscribers = models.ManyToManyField(User, related_name='subscribed_categories', blank=True)
 
     # вроде не обязательно, но нужно для отображения
     def __str__(self):
@@ -42,7 +42,6 @@ class Post(models.Model):
     categoryType = models.CharField(max_length=2, choices=CATEGORY_CHOICES, default=ARTICLE)
     dateCreation = models.DateTimeField(auto_now_add=True)
     postCategory = models.ManyToManyField(Category, through='PostCategory')
-    # postCategory = models.ForeignKey(Category, through='PostCategory')
     title = models.CharField(max_length=128)
     text = models.TextField()
     rating = models.SmallIntegerField(default=0)
@@ -99,3 +98,14 @@ class CommonSignupForm(SignupForm):
         common_group = Group.objects.get_or_create(name='common')[0]
         common_group.user_set.add(user)
         return user
+
+# class Subscription(models.Model):
+#     subscribers = models.ManyToManyField(User)
+#     categories = models.ManyToManyField(Category, through='PostCategory')
+
+class SubscribedUsers(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True, max_length=100)
+
+    def __str__(self):
+        return self.email
