@@ -1,9 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from django.http import request
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post, Author, Category, PostCategory, Comment, News, SubscribedUsers
+from .models import Post, Author, Category, PostCategory, Comment, News
 from django.core.paginator import Paginator
 from .filters import NewsFilter
 from .forms import NewsForm, CommentForm
@@ -61,6 +61,30 @@ class NewsDetailView(DetailView):
     def get_success_url(self):
         return reverse('news')
 
+class CategoryDetailView(DetailView):
+    model = Category
+    template_name = 'cat.html'
+    context_object_name = 'cat'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        category = Category.objects.get(id=self.kwargs['pk'])
+        context['subscribers'] = category.subscribers.all()
+        return context
+
+    # def post(self, request, *args, **kwargs):
+    #     form = CommentForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+    #         return redirect('news-detail', pk=self.kwargs['pk'])
+    #     else:
+    #         context = self.get_context_data(**kwargs)
+    #         context['form'] = form
+    #         return self.render_to_response(context)
+    #
+    # def get_success_url(self):
+    #     return reverse('news')
+
 class SearchListView(ListView):
     model = Post
     template_name = 'search.html'
@@ -93,17 +117,27 @@ class NewsDeleteView(DeleteView):
     success_url = '/news/'
     context_object_name = 'new'
 
-def subscribe(request):
-    if request.method == 'POST':
-        name = request.POST.get('name', None)
-        email = request.POST.get('email', None)
+def subscribe(request, pk):
+    category = Category.objects.get(pk=pk)
+    category.subscribers.add(request.user.id)
+    return HttpResponseRedirect(reverse('cat', args=[pk]))
 
-        subscribe_user = SubscribedUsers.objects.filter(email=email).first()
+def unsubscribe(request, pk):
+    category = Category.objects.get(pk=pk)
+    category.subscribers.remove(request.user.id)
+    return HttpResponseRedirect(reverse('cat', args=[pk]))
 
-        subscribe_model_instance = SubscribedUsers()
-        subscribe_model_instance.name = name
-        subscribe_model_instance.email = email
-        subscribe_model_instance.save()
-        return redirect(request.META.get("HTTP_REFERER", "/"))
+# def subscribe(request):
+#     if request.method == 'POST':
+#         name = request.POST.get('name', None)
+#         email = request.POST.get('email', None)
+#
+#         subscribe_user = SubscribedUsers.objects.filter(email=email).first()
+#
+#         subscribe_model_instance = SubscribedUsers()
+#         subscribe_model_instance.name = name
+#         subscribe_model_instance.email = email
+#         subscribe_model_instance.save()
+#         return redirect(request.META.get("HTTP_REFERER", "/"))
 
 

@@ -25,11 +25,17 @@ class Author(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=64, unique=True)
-    # subscribers = models.ManyToManyField(User, related_name='subscribed_categories', blank=True)
+    subscribers = models.ManyToManyField(User, through='CategorySubscriber')
 
-    # вроде не обязательно, но нужно для отображения
     def __str__(self):
         return self.name
+
+class CategorySubscriber(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    subscriber = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.name}"
 
 class Post(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
@@ -102,10 +108,10 @@ class CommonSignupForm(SignupForm):
 # class Subscription(models.Model):
 #     subscribers = models.ManyToManyField(User)
 #     categories = models.ManyToManyField(Category, through='PostCategory')
-
-class SubscribedUsers(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.EmailField(unique=True, max_length=100)
-
-    def __str__(self):
-        return self.email
+#
+# class SubscribedUsers(models.Model):
+#     name = models.CharField(max_length=100)
+#     email = models.EmailField(unique=True, max_length=100)
+#
+#     def __str__(self):
+#         return self.email
