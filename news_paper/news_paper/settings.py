@@ -153,3 +153,9 @@ LOGIN_URL = 'http://127.0.0.1:8000/accounts/login/'
 LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/news/'
 
 ACCOUNT_FORMS = {'signup': 'newapp.models.CommonSignupForm'}
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'roma.sitdikov'
+EMAIL_HOST_PASSWORD = 'okrvcvxrtfoqiart'
+EMAIL_USE_SSL = True

@@ -105,13 +105,3 @@ class CommonSignupForm(SignupForm):
         common_group.user_set.add(user)
         return user
 
-# class Subscription(models.Model):
-#     subscribers = models.ManyToManyField(User)
-#     categories = models.ManyToManyField(Category, through='PostCategory')
-#
-# class SubscribedUsers(models.Model):
-#     name = models.CharField(max_length=100)
-#     email = models.EmailField(unique=True, max_length=100)
-#
-#     def __str__(self):
-#         return self.email

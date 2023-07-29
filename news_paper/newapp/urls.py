@@ -11,7 +11,6 @@ urlpatterns = [
     path('<int:pk>/edit/', NewsUpdateView.as_view(), name='news-update'),
     path('<int:pk>/delete/', NewsDeleteView.as_view(), name='news-delete'),
     path('be_author/', i_am_author, name = 'be_author'),
-    # path('subscribe/', views.subscribe, name = 'subscribe'),
     path('cat/<int:pk>', CategoryDetailView.as_view(), name='cat'),
     path('subscribe/<int:pk>', subscribe, name='subscribe'),
     path('unsubscribe/<int:pk>', unsubscribe, name='unsubscribe'),

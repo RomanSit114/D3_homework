@@ -3,12 +3,14 @@ from django.contrib.auth.models import Group
 from django.http import request
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post, Author, Category, PostCategory, Comment, News
+from .models import Post, Author, Category, PostCategory, Comment, News, CategorySubscriber
 from django.core.paginator import Paginator
 from .filters import NewsFilter
 from .forms import NewsForm, CommentForm
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.urls import reverse
+from django.template.loader import render_to_string
+from django.core.mail import EmailMultiAlternatives
 
 class NewsListView(ListView):
     model = Post
@@ -72,19 +74,6 @@ class CategoryDetailView(DetailView):
         context['subscribers'] = category.subscribers.all()
         return context
 
-    # def post(self, request, *args, **kwargs):
-    #     form = CommentForm(request.POST)
-    #     if form.is_valid():
-    #         form.save()
-    #         return redirect('news-detail', pk=self.kwargs['pk'])
-    #     else:
-    #         context = self.get_context_data(**kwargs)
-    #         context['form'] = form
-    #         return self.render_to_response(context)
-    #
-    # def get_success_url(self):
-    #     return reverse('news')
-
 class SearchListView(ListView):
     model = Post
     template_name = 'search.html'
@@ -100,6 +89,39 @@ class NewsCreateView(PermissionRequiredMixin, CreateView):
     form_class = NewsForm
     template_name = 'news_create.html'
     success_url = '/news/'
+
+    # функция, которая уведомляет на почту подписчиком данной категории новостей
+    def post(self, request, *args, **kwargs):
+
+        form = self.form_class(request.POST)
+
+        self.object = form.save()
+
+        self.postCategory_list = self.object.postCategory.all()
+
+        for category in self.postCategory_list:
+
+            for sub in category.subscribers.all():
+
+                html_content = render_to_string(
+                    'send_mail_subscribe_to_news.html',
+                    {
+                        'user': sub,
+                        'post': self.object,
+                    }
+                )
+
+                msg = EmailMultiAlternatives(
+                    subject=f'{self.object.title}',
+                    body=self.object.text,
+                    from_email='roma.sitdikov@yandex.ru',
+                    to=[f'{sub.email}'],
+                )
+                msg.attach_alternative(html_content, "text/html")  # добавляем html
+                msg.send()  # отсылаем
+
+        return HttpResponseRedirect(self.get_success_url())
+
 
 class NewsUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     permission_required = ('newapp.change_post')
@@ -126,18 +148,3 @@ def unsubscribe(request, pk):
     category = Category.objects.get(pk=pk)
     category.subscribers.remove(request.user.id)
     return HttpResponseRedirect(reverse('cat', args=[pk]))
-
-# def subscribe(request):
-#     if request.method == 'POST':
-#         name = request.POST.get('name', None)
-#         email = request.POST.get('email', None)
-#
-#         subscribe_user = SubscribedUsers.objects.filter(email=email).first()
-#
-#         subscribe_model_instance = SubscribedUsers()
-#         subscribe_model_instance.name = name
-#         subscribe_model_instance.email = email
-#         subscribe_model_instance.save()
-#         return redirect(request.META.get("HTTP_REFERER", "/"))
-
-
