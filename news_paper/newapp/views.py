@@ -148,3 +148,5 @@ def unsubscribe(request, pk):
     category = Category.objects.get(pk=pk)
     category.subscribers.remove(request.user.id)
     return HttpResponseRedirect(reverse('cat', args=[pk]))
+
+# 30.07 16:02
