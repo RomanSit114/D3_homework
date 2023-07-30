@@ -105,3 +105,5 @@ class CommonSignupForm(SignupForm):
         common_group.user_set.add(user)
         return user
 
+# 30.07 15.27
+
