@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.flatpages',
 
     'django_filters',
+
+    'django_apscheduler',
 ]
 
 MIDDLEWARE = [
@@ -161,3 +163,6 @@ EMAIL_HOST_PASSWORD = 'okrvcvxrtfoqiart'
 EMAIL_USE_SSL = True
 
 DEFAULT_FROM_EMAIL = 'roma.sitdikov@yandex.ru'
+
+APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
+

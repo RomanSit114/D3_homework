@@ -11,6 +11,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from django.urls import reverse
 from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 
 class NewsListView(ListView):
     model = Post
@@ -84,6 +86,17 @@ class SearchListView(ListView):
         context['filter'] = NewsFilter(self.request.GET, queryset=self.get_queryset())
         return context
 
+class NewsUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+    permission_required = ('newapp.change_post')
+    form_class = NewsForm
+    template_name = 'news_update.html'
+    success_url = '/news/{id}'
+
+    def get_object(self, **kwargs):
+        id = self.kwargs.get('pk')
+        return Post.objects.get(pk=id)
+
+
 class NewsCreateView(PermissionRequiredMixin, CreateView):
     permission_required = ('newapp.add_post')
     form_class = NewsForm
@@ -121,17 +134,6 @@ class NewsCreateView(PermissionRequiredMixin, CreateView):
                 msg.send()  # отсылаем
 
         return HttpResponseRedirect(self.get_success_url())
-
-
-class NewsUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
-    permission_required = ('newapp.change_post')
-    form_class = NewsForm
-    template_name = 'news_update.html'
-    success_url = '/news/{id}'
-
-    def get_object(self, **kwargs):
-        id = self.kwargs.get('pk')
-        return Post.objects.get(pk=id)
 
 class NewsDeleteView(DeleteView):
     template_name = 'news_delete.html'

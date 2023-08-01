@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.db.models import Sum
 from allauth.account.forms import SignupForm
 from django.contrib.auth.models import Group
+from django.urls import reverse
+
 
 class Author(models.Model):
     authorUser = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -62,6 +64,9 @@ class Post(models.Model):
 
     def preview(self):
         return self.text[0:124] + '...'
+
+    def get_absolute_url(self):
+        return reverse('new', args=[str(self.pk)])
 
     def __str__(self):
         return self.title
