@@ -10,7 +10,7 @@
     <p>Ниже представлен список новых статей по вашим подписанным категориям за последнюю неделю:</p>
     <ul>
         {% for article in articles %}
-        <li><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
+            <li><a href="http://127.0.0.1:8000/{{ article.get_absolute_url }}">{{ article.title }}</a></li>
         {% endfor %}
     </ul>
 </body>

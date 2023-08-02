@@ -11,6 +11,7 @@ from django.core.mail import send_mail, EmailMultiAlternatives
 from django.template.loader import render_to_string
 from ...models import Category, CategorySubscriber, Post
 from django.urls import reverse
+from django.utils import timezone
 
 logger = logging.getLogger(__name__)
 
@@ -30,8 +31,7 @@ def send_weekly_article_list():
                 # Получаем новые статьи данной категории, опубликованные за последнюю неделю
                 new_articles = all_posts.filter(
                     postCategory__name=category,
-                    dateCreation__gte=datetime.datetime.now() - datetime.timedelta(weeks=1),
-                    # created_at__gte=datetime.datetime.now() - datetime.timedelta(weeks=1),
+                    dateCreation__gte=timezone.now() - datetime.timedelta(weeks=1),
             )
             # Добавляем новые статьи в список статей для данного пользователя (подписчика)
             subscribers_by_category[subscriber].extend(new_articles)
@@ -44,7 +44,7 @@ def send_weekly_article_list():
                 'weekly_article_list_email.html',
                 {
                     'user': subscriber,
-                    'articles': article,
+                    'articles': articles,
                 }
             )
 
@@ -57,6 +57,7 @@ def send_weekly_article_list():
             )
             msg.attach_alternative(html_content, "text/html")  # Добавляем HTML-контент в качестве альтернативного формата
             msg.send()
+            # print(html_content)
 
 # функция которая будет удалять неактуальные задачи
 def delete_old_job_executions(scheduler, max_age=604_800):
@@ -74,7 +75,7 @@ class Command(BaseCommand):
         # добавляем работу нашему задачнику
         scheduler.add_job(
             send_weekly_article_list,
-            trigger=CronTrigger(second="*/10"),
+            trigger=CronTrigger(week="*/1"),
             id="send_weekly_article_list",
             max_instances=1,
             replace_existing=True,
@@ -90,68 +91,3 @@ class Command(BaseCommand):
             logger.info("Stopping scheduler...")
             scheduler.shutdown()
             logger.info("Scheduler shut down successfully!")
-
-# import logging
-#
-# from django.conf import settings
-#
-# from apscheduler.schedulers.blocking import BlockingScheduler
-# from apscheduler.triggers.cron import CronTrigger
-# from django.core.management.base import BaseCommand
-# from django_apscheduler.jobstores import DjangoJobStore
-# from django_apscheduler.models import DjangoJobExecution
-#
-# logger = logging.getLogger(__name__)
-#
-#
-# # наша задача по выводу текста на экран
-# def my_job():
-#     #  Your job processing logic here...
-#     print('hello from job')
-#
-#
-# # функция которая будет удалять неактуальные задачи
-# def delete_old_job_executions(max_age=604_800):
-#     """This job deletes all apscheduler job executions older than `max_age` from the database."""
-#     DjangoJobExecution.objects.delete_old_job_executions(max_age)
-#
-#
-# class Command(BaseCommand):
-#     help = "Runs apscheduler."
-#
-#     def handle(self, *args, **options):
-#         scheduler = BlockingScheduler(timezone=settings.TIME_ZONE)
-#         scheduler.add_jobstore(DjangoJobStore(), "default")
-#
-#         # добавляем работу нашему задачнику
-#         scheduler.add_job(
-#             my_job,
-#             trigger=CronTrigger(second="*/10"),
-#             # Тоже самое что и интервал, но задача тригера таким образом более понятна django
-#             id="my_job",  # уникальный айди
-#             max_instances=1,
-#             replace_existing=True,
-#         )
-#         logger.info("Added job 'my_job'.")
-#
-#         scheduler.add_job(
-#             delete_old_job_executions,
-#             trigger=CronTrigger(
-#                 day_of_week="mon", hour="00", minute="00"
-#             ),
-#             # Каждую неделю будут удаляться старые задачи, которые либо не удалось выполнить, либо уже выполнять не надо.
-#             id="delete_old_job_executions",
-#             max_instances=1,
-#             replace_existing=True,
-#         )
-#         logger.info(
-#             "Added weekly job: 'delete_old_job_executions'."
-#         )
-#
-#         try:
-#             logger.info("Starting scheduler...")
-#             scheduler.start()
-#         except KeyboardInterrupt:
-#             logger.info("Stopping scheduler...")
-#             scheduler.shutdown()
-#             logger.info("Scheduler shut down successfully!")
