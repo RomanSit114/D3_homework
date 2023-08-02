@@ -167,3 +167,10 @@ DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")
 
 APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': os.path.join(BASE_DIR, 'cache_files'), # Указываем, куда будем сохранять кэшируемые файлы! Не забываем создать папку cache_files внутри папки с manage.py!
+    }
+}
+
