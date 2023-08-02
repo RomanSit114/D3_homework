@@ -68,7 +68,7 @@ class Command(BaseCommand):
 
     # Здесь будет прописываться как часто будет отправляться сообщение (раз в неделю)
     def handle(self, *args, **options):
-        scheduler = BackgroundScheduler(timezone=settings.TIME_ZONE)
+        scheduler = BlockingScheduler(timezone=settings.TIME_ZONE)
         scheduler.add_jobstore(DjangoJobStore(), "default")
 
         # добавляем работу нашему задачнику
