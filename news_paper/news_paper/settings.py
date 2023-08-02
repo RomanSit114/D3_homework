@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -159,10 +160,13 @@ ACCOUNT_FORMS = {'signup': 'newapp.models.CommonSignupForm'}
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'roma.sitdikov'
-EMAIL_HOST_PASSWORD = 'okrvcvxrtfoqiart'
+# EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = ''
+# EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 EMAIL_USE_SSL = True
 
 DEFAULT_FROM_EMAIL = 'roma.sitdikov@yandex.ru'
+# DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")
 
 APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
 

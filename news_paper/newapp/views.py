@@ -13,6 +13,11 @@ from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives
 from django.dispatch import receiver
 from django.db.models.signals import post_save
+from django.conf import settings
+from decouple import config
+
+# EMAIL_HOST_PASSWORD = settings.EMAIL_HOST_PASSWORD
+# DEFAULT_FROM_EMAIL = settings.DEFAULT_FROM_EMAIL
 
 class NewsListView(ListView):
     model = Post
