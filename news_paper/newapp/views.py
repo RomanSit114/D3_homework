@@ -57,6 +57,7 @@ class NewsDetailView(DetailView):
     model = Post
     template_name = 'new.html'
     context_object_name = 'new'
+    queryset = Post.objects.all()
 
     def post(self, request, *args, **kwargs):
         form = CommentForm(request.POST)
@@ -70,6 +71,16 @@ class NewsDetailView(DetailView):
 
     def get_success_url(self):
         return reverse('news')
+
+    def get_object(self, *args, **kwargs):  # переопределяем метод получения объекта, как ни странно
+        obj = cache.get(f'post-{self.kwargs["pk"]}',None)  # кэш очень похож на словарь, и метод get действует также. Он забирает значение по ключу, если его нет, то забирает None.
+
+        # если объекта нет в кэше, то получаем его и записываем в кэш
+        if not obj:
+            obj = super().get_object(queryset=self.queryset)
+            cache.set(f'post-{self.kwargs["pk"]}', obj)
+
+        return obj
 
 class CategoryDetailView(DetailView):
     model = Category
@@ -137,7 +148,8 @@ class NewsCreateView(PermissionRequiredMixin, CreateView):
                     to=[f'{sub.email}'],
                 )
                 msg.attach_alternative(html_content, "text/html")  # добавляем html
-                msg.send()  # отсылаем
+                # msg.send()  # отсылаем
+                print(html_content)
 
         return HttpResponseRedirect(self.get_success_url())
 

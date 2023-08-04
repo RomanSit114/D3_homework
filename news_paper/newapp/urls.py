@@ -5,8 +5,10 @@ from .views import NewsListView, NewsDetailView, SearchListView, NewsCreateView,
 from django.views.decorators.cache import cache_page
 
 urlpatterns = [
-    path('', cache_page(60)(NewsListView.as_view()), name='main_page'),
-    path('<int:pk>', cache_page(300)(NewsDetailView.as_view()), name='new'),
+    # path('', cache_page(60)(NewsListView.as_view()), name='main_page'),
+    path('', NewsListView.as_view(), name='main_page'),
+    # path('<int:pk>', cache_page(300)(NewsDetailView.as_view()), name='new'),
+    path('<int:pk>', NewsDetailView.as_view(), name='new'),
     path('search/', SearchListView.as_view()),
     path('add/', NewsCreateView.as_view(), name='news-create'),
     path('<int:pk>/edit/', NewsUpdateView.as_view(), name='news-update'),
