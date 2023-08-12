@@ -6,7 +6,6 @@
     <title>Еженедельный список новых статей</title>
 </head>
 <body>
-    {% for sub in subscribers %}
         <h2>Здравствуйте, {{ sub.username }}!</h2>
         <p>Ниже представлен список новых статей по категории {{ cat.name }} за последнюю неделю:</p>
         <ul>
@@ -14,6 +13,5 @@
                 <li><a href="http://127.0.0.1:8000/{{ post.get_absolute_url }}">{{ post.title }}</a></li>
             {% endfor %}
         </ul>
-    {% endfor %}
 </body>
 </html>
