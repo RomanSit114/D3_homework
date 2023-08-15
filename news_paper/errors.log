@@ -1,0 +1,153 @@
+    2023-08-16 00:03:25,383 - ERROR - Internal Server Error: /news/add/ - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py - (<class 'NameError'>, NameError("name 'form' is not defined"), <traceback object at 0x000001BF0E5F6840>)
+Traceback (most recent call last):
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py", line 132, in post
+    self.object = form.save()
+NameError: name 'form' is not defined
+2023-08-16 00:03:25,388 - ERROR - "POST /news/add/ HTTP/1.1" 500 86488 - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py - None
+
+2023-08-16 00:36:31,191 - ERROR - Internal Server Error: /news/add/ - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py - (<class 'NameError'>, NameError("name 'form' is not defined"), <traceback object at 0x000002171EF8E380>)
+Traceback (most recent call last):
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py", line 132, in post
+    self.object = form.save()
+NameError: name 'form' is not defined
+2023-08-16 00:36:32,494 - ERROR - "POST /news/add/ HTTP/1.1" 500 145 - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py - None
+
+2023-08-16 00:40:19,122 - ERROR - Internal Server Error: /news/add/ - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py - (<class 'NameError'>, NameError("name 'form' is not defined"), <traceback object at 0x000001EAAA51E080>)
+Traceback (most recent call last):
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py", line 132, in post
+    self.object = form.save()
+NameError: name 'form' is not defined
+2023-08-16 00:40:20,335 - ERROR - "POST /news/add/ HTTP/1.1" 500 88405 - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py - None
+
+2023-08-16 00:57:12,933 - ERROR - Internal Server Error: /news/add/ - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py - (<class 'NameError'>, NameError("name 'form' is not defined"), <traceback object at 0x000002416032F9C0>)
+Traceback (most recent call last):
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py", line 132, in post
+    self.object = form.save()
+NameError: name 'form' is not defined
+2023-08-16 00:57:20,051 - ERROR - "POST /news/add/ HTTP/1.1" 500 145 - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py - None
+
+2023-08-16 00:58:36,654 - ERROR - Internal Server Error: /news/add/ - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py - (<class 'NameError'>, NameError("name 'form' is not defined"), <traceback object at 0x000002569D039B80>)
+Traceback (most recent call last):
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py", line 132, in post
+    self.object = form.save()
+NameError: name 'form' is not defined
+2023-08-16 00:58:54,981 - ERROR - "POST /news/add/ HTTP/1.1" 500 145 - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py - None
+
+2023-08-16 00:59:47,810 - ERROR - Internal Server Error: /news/add/ - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py - (<class 'NameError'>, NameError("name 'form' is not defined"), <traceback object at 0x0000022100D03AC0>)
+Traceback (most recent call last):
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py", line 132, in post
+    self.object = form.save()
+NameError: name 'form' is not defined
+2023-08-16 01:00:01,110 - ERROR - "POST /news/add/ HTTP/1.1" 500 145 - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py - None
+
+2023-08-16 01:06:48,236 - ERROR - Internal Server Error: /news/add/ - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py - (<class 'NameError'>, NameError("name 'form' is not defined"), <traceback object at 0x0000022364C57940>)
+Traceback (most recent call last):
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py", line 132, in post
+    self.object = form.save()
+NameError: name 'form' is not defined
+2023-08-16 01:07:01,466 - ERROR - "POST /news/add/ HTTP/1.1" 500 145 - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py - None
+
+2023-08-16 01:09:22,052 - ERROR - Internal Server Error: /news/add/ - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py - (<class 'NameError'>, NameError("name 'form' is not defined"), <traceback object at 0x000002562F2A1A80>)
+Traceback (most recent call last):
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py", line 132, in post
+    self.object = form.save()
+NameError: name 'form' is not defined
+2023-08-16 01:09:35,068 - ERROR - "POST /news/add/ HTTP/1.1" 500 145 - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py - None
+
+2023-08-16 01:17:58,404 - ERROR - Internal Server Error: /news/add/ - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\log.py - (<class 'NameError'>, NameError("name 'form' is not defined"), <traceback object at 0x000001B68D0A4280>)
+Traceback (most recent call last):
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py", line 132, in post
+    self.object = form.save()
+NameError: name 'form' is not defined
+2023-08-16 01:18:11,514 - ERROR - "POST /news/add/ HTTP/1.1" 500 145 - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py - None
+

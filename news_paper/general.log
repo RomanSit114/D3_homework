@@ -1,0 +1,290 @@
+2023-08-15 23:53:04,069 - INFO - Watching for file changes with StatReloader - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\autoreload.py - None
+
+2023-08-15 23:53:09,759 - INFO - "GET /news/ HTTP/1.1" 200 4333 - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py - None
+
+2023-08-15 23:54:19,567 - INFO - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading. - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\autoreload.py - None
+
+2023-08-15 23:54:20,358 - INFO - Watching for file changes with StatReloader - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\autoreload.py - None
+
+2023-08-15 23:54:30,929 - INFO - "GET /news/63 HTTP/1.1" 200 298 - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\servers\basehttp.py - None
+
+2023-08-15 23:56:09,192 - INFO - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading. - C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\utils\autoreload.py - None
+
+2023-08-15 23:56:09,907 - INFO - -----autoreload------ - Watching for file changes with StatReloader
+
+2023-08-15 23:56:14,946 - INFO - -----basehttp------ - "GET /news/ HTTP/1.1" 200 4333
+
+2023-08-15 23:58:15,999 - INFO - -----autoreload------ - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-15 23:58:16,718 - INFO - -----autoreload------ - Watching for file changes with StatReloader
+
+2023-08-15 23:58:44,196 - INFO - -----autoreload------ - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-15 23:58:44,900 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-15 23:59:28,016 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-15 23:59:28,745 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-15 23:59:51,097 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-15 23:59:51,829 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:00:18,775 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 00:00:19,494 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:01:20,279 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 00:01:21,048 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:01:31,909 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 00:01:32,614 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:01:54,904 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 00:01:55,700 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:02:09,734 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 00:02:10,471 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:02:26,481 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 00:02:27,195 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:02:38,037 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 00:02:38,787 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:02:55,940 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py changed, reloading.
+
+2023-08-16 00:02:56,653 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:03:25,383 - ERROR - log - Internal Server Error: /news/add/
+Traceback (most recent call last):
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py", line 132, in post
+    self.object = form.save()
+NameError: name 'form' is not defined
+2023-08-16 00:03:25,388 - ERROR - basehttp - "POST /news/add/ HTTP/1.1" 500 86488
+
+2023-08-16 00:05:35,270 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py changed, reloading.
+
+2023-08-16 00:05:36,058 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:06:30,183 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 00:06:30,858 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:06:38,586 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 00:06:39,194 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:06:52,145 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 00:06:52,818 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:07:01,546 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 00:07:02,158 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:07:23,446 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 00:07:24,209 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:07:46,569 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 00:07:47,214 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:10:31,420 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 00:31:56,640 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:33:10,198 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:33:32,894 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:35:01,859 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:35:46,093 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py changed, reloading.
+
+2023-08-16 00:35:46,761 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:36:06,960 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 00:36:07,663 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:36:31,191 - ERROR - log - Internal Server Error: /news/add/
+Traceback (most recent call last):
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py", line 132, in post
+    self.object = form.save()
+NameError: name 'form' is not defined
+2023-08-16 00:36:32,494 - ERROR - basehttp - "POST /news/add/ HTTP/1.1" 500 145
+
+2023-08-16 00:40:06,576 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 00:56:40,408 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:57:12,933 - ERROR - log - Internal Server Error: /news/add/
+Traceback (most recent call last):
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py", line 132, in post
+    self.object = form.save()
+NameError: name 'form' is not defined
+2023-08-16 00:57:20,051 - ERROR - basehttp - "POST /news/add/ HTTP/1.1" 500 145
+
+2023-08-16 00:58:11,087 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 00:58:14,002 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:58:36,654 - ERROR - log - Internal Server Error: /news/add/
+Traceback (most recent call last):
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py", line 132, in post
+    self.object = form.save()
+NameError: name 'form' is not defined
+2023-08-16 00:58:54,981 - ERROR - basehttp - "POST /news/add/ HTTP/1.1" 500 145
+
+2023-08-16 00:59:41,575 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 00:59:42,131 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 00:59:47,810 - ERROR - log - Internal Server Error: /news/add/
+Traceback (most recent call last):
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py", line 132, in post
+    self.object = form.save()
+NameError: name 'form' is not defined
+2023-08-16 01:00:01,110 - ERROR - basehttp - "POST /news/add/ HTTP/1.1" 500 145
+
+2023-08-16 01:05:57,264 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 01:05:57,904 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 01:06:37,242 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 01:06:37,865 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 01:06:41,097 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 01:06:48,236 - ERROR - log - Internal Server Error: /news/add/
+Traceback (most recent call last):
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py", line 132, in post
+    self.object = form.save()
+NameError: name 'form' is not defined
+2023-08-16 01:07:01,466 - ERROR - basehttp - "POST /news/add/ HTTP/1.1" 500 145
+
+2023-08-16 01:09:16,502 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 01:09:17,101 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 01:09:22,052 - ERROR - log - Internal Server Error: /news/add/
+Traceback (most recent call last):
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py", line 132, in post
+    self.object = form.save()
+NameError: name 'form' is not defined
+2023-08-16 01:09:35,068 - ERROR - basehttp - "POST /news/add/ HTTP/1.1" 500 145
+
+2023-08-16 01:11:10,163 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 01:11:10,871 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 01:16:21,011 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 01:17:12,459 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 01:17:58,404 - ERROR - log - Internal Server Error: /news/add/
+Traceback (most recent call last):
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\contrib\auth\mixins.py", line 109, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\venv\lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py", line 132, in post
+    self.object = form.save()
+NameError: name 'form' is not defined
+2023-08-16 01:18:11,514 - ERROR - basehttp - "POST /news/add/ HTTP/1.1" 500 145
+
+2023-08-16 01:19:59,943 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\news_paper\settings.py changed, reloading.
+
+2023-08-16 01:20:00,496 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 01:20:07,095 - INFO - autoreload - C:\Users\roman\PycharmProjects\NewsPaper\news_paper\newapp\views.py changed, reloading.
+
+2023-08-16 01:20:07,635 - INFO - autoreload - Watching for file changes with StatReloader
+
+2023-08-16 01:20:11,177 - INFO - autoreload - Watching for file changes with StatReloader
+
