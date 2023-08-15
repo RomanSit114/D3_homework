@@ -17,6 +17,10 @@ from django.conf import settings
 from decouple import config
 from django.core.cache import cache
 
+import logging
+
+logger = logging.getLogger('django')
+
 # EMAIL_HOST_PASSWORD = settings.EMAIL_HOST_PASSWORD
 # DEFAULT_FROM_EMAIL = settings.DEFAULT_FROM_EMAIL
 
@@ -123,7 +127,7 @@ class NewsCreateView(PermissionRequiredMixin, CreateView):
     # функция, которая уведомляет на почту подписчиком данной категории новостей
     def post(self, request, *args, **kwargs):
 
-        form = self.form_class(request.POST)
+        # form = self.form_class(request.POST)
 
         self.object = form.save()
 
@@ -149,7 +153,9 @@ class NewsCreateView(PermissionRequiredMixin, CreateView):
                 )
                 msg.attach_alternative(html_content, "text/html")  # добавляем html
                 # msg.send()  # отсылаем
-                print(html_content)
+                # print(html_content)
+                # logger.debug(html_content)
+                logger.error("Happened error",  exc_info=True)
 
         return HttpResponseRedirect(self.get_success_url())
 
@@ -168,3 +174,4 @@ def unsubscribe(request, pk):
     category = Category.objects.get(pk=pk)
     category.subscribers.remove(request.user.id)
     return HttpResponseRedirect(reverse('cat', args=[pk]))
+

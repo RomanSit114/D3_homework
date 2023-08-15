@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 from decouple import config
+import logging
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -174,3 +175,50 @@ CACHES = {
     }
 }
 
+LOGGING_DIR = os.path.join(BASE_DIR, 'logs')
+os.makedirs(LOGGING_DIR, exist_ok=True)
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {message}',
+            'style': '{',
+        },
+        'with_exc_info': {
+            'format': '{levelname} {asctime} {message}\n\n\n{exc_info}',
+            'style': '{',
+        },
+        'with_pathname': {
+            'format': '{levelname} {asctime} {pathname}:{lineno} - {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console_debug': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+        'console_warning': {
+            'level': 'WARNING',
+            'class': 'logging.StreamHandler',
+            'formatter': 'with_pathname',
+        },
+        'console_error': {
+            'level': 'ERROR',
+            'class': 'logging.StreamHandler',
+            'formatter': 'with_exc_info',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console_debug', 'console_warning', 'console_error'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
+
+# logger = logging.getLogger('django')
